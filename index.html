@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Damas Money</title>
+        <link rel="stylesheet" href="css/reset.css" type="text/css">
+        <link rel="stylesheet" href="css/main.css" type="text/css">
+        <link rel="stylesheet" href="css/orientation_utils.css" type="text/css">
+        <link rel="stylesheet" href="css/ctl-multiplayer-icons.css" type="text/css">
+        <link rel="stylesheet" href="css/animation.css" type="text/css">           
+        <link rel="stylesheet" href="https://api.codethislab.com/gd/moregames.css" type="text/css">
+        <link rel="stylesheet" href="css/ctl-multiplayer.css" type="text/css"> 
+        <link rel='shortcut icon' type='image/x-icon' href="./favicon.ico" />    
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, minimal-ui" />
+    <meta name="msapplication-tap-highlight" content="no"/>
+        <script type="text/javascript" src="js/lib/popper.min.js"></script>
+        <script type="text/javascript" src="js/lib/clipboard.min.js"></script>
+        <script type="text/javascript" src="js/lib/createjs.min.js"></script>
+        <script type="text/javascript" src="js/lib/howler.min.js"></script>
+        <script type="text/javascript" src="https://api.codethislab.com/gd/moregames.js"></script>
+        
+        
+        
+        <script type="text/javascript" src="js/CLang.js"></script>
+        
+        
+        
+        
+        
+        
+        <script type="text/javascript" src="js/main.js"></script>
+        
+    </head>
+    <body ondragstart="return false;" ondrop="return false;" >
+    <div style="position: fixed; background-color: transparent; top: 0px; left: 0px; width: 100%; height: 100%"></div>
+          <script>
+            document.addEventListener("DOMContentLoaded", () =>{
+                    var oMain = new CMain({
+                        audio_enable_on_startup:true, //ENABLE/DISABLE AUDIO WHEN GAME STARTS
+                        check_orientation: false,
+                        fullscreen: false
+                    });
+                                           
+                                           
+                    document.addEventListener("start_session", function(evt) {
+                            
+                    });
+                     
+                    document.addEventListener("end_session", function(evt) {
+                           
+                    });
+                    
+                    document.addEventListener("save_score", function(evt) {
+                        var iWinner = evt.detail.winner;
+                        var iBlackTime = evt.detail.black_time;
+                        var iWhiteTime = evt.detail.white_time;
+                        var iGameType = evt.detail.type;
+                        var iWhiteScore = evt.detail.white_score;
+                        var iBlackScore = evt.detail.black_score;
+                        var iTimeIndex = evt.detail.time_index;
+                        // iWinner: 
+                        // -1 IS DRAW
+                        //0 WHITE WINS
+                        //1 BLACK WINS
+                        //2 WHITE WINS CAUSE BLACK CAN'T MOVE
+                        //3 BLACK WINS CAUSE WHITE CAN'T MOVE
+                            
+                            
+                    });
+                     
+                    document.addEventListener("share_event", function(evt) {
+                           
+                    });
+                    document.addEventListener("show_interlevel_ad", function(evt) {
+                        if (typeof gdsdk !== 'undefined' && gdsdk.showAd !== 'undefined') {
+                            gdsdk.showAd();
+                        }
+                    });
+                     
+                    if(isIOS()){ 
+                        setTimeout(function(){sizeHandler();},200); 
+                    }else{
+                        sizeHandler(); 
+                    }
+           });
+        </script>
+        
+        <div class="check-fonts">
+            <p class="check-font-1">RoundedMplus1c</p>
+        </div> 
+        <div class="check-fonts">
+            <p class="check-font-2">ArialRounded</p>
+        </div> 
+        
+        <canvas id="canvas" class='ani_hack' width="1920" height="1920"> </canvas>
+        <div data-orientation="portrait" class="orientation-msg-container"><p class="orientation-msg-text">Please rotate your device</p></div>
+        <div id="block_game" style="position: fixed; background-color: transparent; top: 0px; left: 0px; width: 100%; height: 100%; display:none"></div>
+        <div id="div_display_id"></div>
+    </body>
+</html>
